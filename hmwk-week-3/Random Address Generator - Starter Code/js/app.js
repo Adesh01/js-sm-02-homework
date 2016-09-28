@@ -9,12 +9,12 @@ $(document).ready(function(){
 
 
 	$('button#makeAddress').click(function(){
-		var houseNumber = Math.floor((Math.random() * 10000));
-		var streetRandom = Math.floor((Math.random() * streets.length) + 1); 
-		var typeRandom = Math.floor((Math.random() * types.length));
-		var cityRandom = Math.floor((Math.random() * cities.length) +1);
-		var stateRandom = Math.floor((Math.random() * states.length));
-		var zipRandom = Math.floor((Math.random() * zipcodes.length));
+		var houseNumber = Math.floor(Math.random() * 10000);
+		var streetRandom = Math.floor(Math.random() * streets.length); 
+		var typeRandom = Math.floor(Math.random() * types.length);
+		var cityRandom = Math.floor(Math.random() * cities.length);
+		var stateRandom = Math.floor(Math.random() * states.length);
+		var zipRandom = Math.floor(Math.random() * zipcodes.length);
 
 		//var houseNumber = numberRandom;
 		var streetName = streets[streetRandom];
