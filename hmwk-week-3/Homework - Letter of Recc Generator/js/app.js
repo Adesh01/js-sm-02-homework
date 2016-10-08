@@ -33,6 +33,8 @@ $(document).ready(function(){
 		noun[0] = $('input#nounOne').val();
 		noun[1] = $('input#nounTwo').val();
 		noun[2] = $('input#nounThree').val();
+		noun[3] = $('input#nounFour').val();
+		noun[4] = $('input#nounFive').val();
 
 		adverb[0] = $('input#adverbOne').val();
 		adverb[1] = $('input#adverbTwo').val();
