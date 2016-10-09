@@ -19,7 +19,7 @@ $(document).ready(function(){
 		//var houseNumber = numberRandom;
 		var streetName = streets[streetRandom];
 		var streetType = types[typeRandom];
-		var city = cities[typeRandom];
+		var city = cities[cityRandom];
 		var state = states[stateRandom];
 		var zipcode = zipcodes[zipRandom];
 		//PEMDAS
