@@ -1,0 +1,55 @@
+module.exports = function(robbot) {
+	
+
+	robbot.hear(/([Hello|Hi|hello|hi]+) @francoi/, function(res) { 
+	//bot.hear(/([Hello|Hi|hello|hi]+) @([a-zA-Z]+)/
+		return res.send("Hi francoise!");
+
+	});
+
+	robbot.respond(/What time is it?/, function(res) { 
+
+		return res.send("it's 9pm PST - time to chill");
+
+	});
+	//google regular expression http://regex101.com - whart are reg expr?!
+	robbot.respond(/Hi robbot! My name is (.*) and my age is (.*)/i, function(msg) { 
+		var name;
+		var age;
+		name = msg.match[1];
+		age = msg.match[2];
+		if (name == "robbot"){
+			return msg.send("You're not robbot, I'm robbot!"); } else {
+			return msg.reply("Nice to meet you, " + name + "!"); 
+		}
+		else if (name !== robbot && age >= 21) {
+			return msg.send("Let's go have a drink!");
+		} 
+		else if { (name !== robbot && age < 21) {
+			return msg.reply("Nice to meet you, " + name + ", let's go to the park, because you are " + age + "!");
+		}
+	});
+
+	// robbot.respond(/add (.*) and (.*)/i, function(msg) { 
+	// 	var a;
+	// 	var b;
+	// 	a = parseInt(msg.match[1]);
+	// 	b = parseInt(msg.match[2]); c=a+b
+	// 	return msg.reply(a + " plus " + b + " = " + c); 
+	// });
+
+	robbot.hear(/Do we have class today?/i, function(msg) {
+		var date = new Date();
+
+		if ( date.getDay() === 2 || date.getDay() === 4 ) {
+			return msg.send("yes, we have class today"); } else {
+			 	return msg.reply("no we do\'nt have class today."); }
+		});
+
+	robbot.hear(/Tell me a nice quote/i, function(msg) {
+		var quotes = ['be a warrior, not a worrier', 'freedom is a state of mind', 'do epic shit', 'aspire to inspire before we expire', 'broken crayons still color', 'you will find beauty in being broken', 'the best is yet to come'];
+		var quoteRandom = Math.floor(Math.random() * quotes.length);
+		var result = quotes[quoteRandom];
+			return msg.send(result);
+	});
+};
