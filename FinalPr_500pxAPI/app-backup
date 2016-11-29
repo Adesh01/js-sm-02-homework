@@ -1,0 +1,144 @@
+$(function() {
+  // DOM is now ready // instructions: https://github.com/500px/500px-js-sdk or 500px/api-documentation
+	  _500px.init({
+	    sdk_key: '51d49f188669e076620d6783b323825da885815a' // key found in the 500px.com/settings/application
+	  });
+
+
+  	var addPhotosToScreen = function (response) {
+    	//console.log(response.data.photos);
+    	response.data.photos.forEach(function(photo, index) { //gets info from Javascript SDK (sofware dev kit) on their site
+    		console.log(photo);
+    		$('div.canvas').append('<img class="image" src="'+ photo.image_url + '">');
+
+    		//var $image = $('<img>').attr('src', photo.image_url);
+    		//$('div.images').append( $image );
+    	});
+	}
+
+
+	$('a#login').click(function(e){
+        e.preventDefault();
+		_500px.login();
+	});
+	
+	_500px.on('authorization_obtained', function () {
+
+		//Hide login btn
+		$('div.sign-in-view').hide();
+		//show Photos
+		$('div.canvas-view').show();
+    	//alert('You have logged in');
+    	console.log(navigator);
+    	if (navigator.geolocation) { 		//how to get the geolocation on your computer
+    		navigator.geolocation.getCurrentPosition( function(position){
+    			//console.log(position);
+    			var geoQuery = position.coords.latitude + ',' + position.coords.longitude + ',' + 15 + 'mi';	//gets the coordinates
+    			// or: var searchQuery = { geo: geoQuery, rpp:28, page: 1, image_size: 3, sort: 'highest_rating' }//and then put it in as a variable below
+                _500px.api('/photos/search', { geo: geoQuery, rpp:5, page: 1, image_size: 1, sort: 'highest_rating' }, addPhotosToScreen); //callback function
+    		});
+    	}
+    });
+
+        /* grab text from input field */
+        $('input.title').on('submit', function() {
+
+        })
+     
+
+        /* PIXIJS CODE - DRAGGING */
+             var renderer = PIXI.autoDetectRenderer(800, 600);
+            document.body.appendChild(renderer.view);
+
+            // create the root of the scene graph
+            var stage = new PIXI.Container();
+
+            // create a texture from an image path
+            var texture = PIXI.Texture.fromImage('required/assets/bunny.png');
+
+            /*for (var i = 0; i < 10; i++)
+            {
+                createBunny(Math.floor(Math.random() * 800) , Math.floor(Math.random() * 600));
+            }*/
+
+            function createBunny(x, y)
+            {
+                // create our little bunny friend..
+                var bunny = new PIXI.Sprite(texture);
+
+                // enable the bunny to be interactive... this will allow it to respond to mouse and touch events
+                bunny.interactive = true;
+
+                // this button mode will mean the hand cursor appears when you roll over the bunny with your mouse
+                bunny.buttonMode = true;
+
+                // center the bunny's anchor point
+                bunny.anchor.set(0.5);
+
+                // make it a bit bigger, so it's easier to grab
+                bunny.scale.set(3);
+
+                // setup events
+                bunny
+                    // events for drag start
+                    .on('mousedown', onDragStart)
+                    .on('touchstart', onDragStart)
+                    // events for drag end
+                    .on('mouseup', onDragEnd)
+                    .on('mouseupoutside', onDragEnd)
+                    .on('touchend', onDragEnd)
+                    .on('touchendoutside', onDragEnd)
+                    // events for drag move
+                    .on('mousemove', onDragMove)
+                    .on('touchmove', onDragMove);
+
+                // move the sprite to its designated position
+                bunny.position.x = x;
+                bunny.position.y = y;
+
+                // add it to the stage
+                stage.addChild(bunny);
+            }
+
+            requestAnimationFrame( animate );
+
+            function animate() {
+
+                requestAnimationFrame(animate);
+
+                // render the stage
+                renderer.render(stage);
+            }
+
+            function onDragStart(event)
+            {
+                // store a reference to the data
+                // the reason for this is because of multitouch
+                // we want to track the movement of this particular touch
+                this.data = event.data;
+                this.alpha = 0.5;
+                this.dragging = true;
+            }
+
+            function onDragEnd()
+            {
+                this.alpha = 1;
+
+                this.dragging = false;
+
+                // set the interaction data to null
+                this.data = null;
+            }
+
+            function onDragMove()
+            {
+                if (this.dragging)
+                {
+                    var newPosition = this.data.getLocalPosition(this.parent);
+                    this.position.x = newPosition.x;
+                    this.position.y = newPosition.y;
+                }
+            }
+ 
+
+});

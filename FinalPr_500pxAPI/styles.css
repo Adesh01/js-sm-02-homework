@@ -1,0 +1,115 @@
+body {
+  background-color: #f2f2f2;
+  font-family: helvetica, sans-serif;
+}
+
+h1 {
+  font-weight: bold;
+  text-align:center;
+}
+
+h1 span {
+  font-weight: normal;
+}
+.text-center {
+  text-align:center;
+  margin: 0 auto;
+}
+.images img {
+  padding:3px;
+}
+.canvas-view {
+  display: none;
+}
+
+.btn-default {
+  margin-top: 4em;
+}
+.tools {
+  width:29%;
+  height:auto;
+  overflow:auto;
+  margin-top:30px;
+  padding-bottom:30px;
+  float:left;
+  background-color:#fff;
+  border:1px solid #111;
+}
+.canvas {
+  width:64%;
+  float:left;
+  background-color:#fff;
+  margin:30px;
+  border:1px solid #111;
+  height:700px;
+  margin-right:20px;
+}
+h3 {
+  font-size:20px;
+  color:#222;
+  padding:0px;
+  text-align:center;
+  margin-top:10px;
+  margin-bottom:0px;
+}
+h4 {
+  font-size:16px;
+  color:#222;
+  padding: 10px;
+  text-align:left;
+  margin-top:15px;
+  margin-bottom:0px;
+}
+h4.blue { color:orange;font-weight:bold;margin-top:20px;}
+a.top {
+  text-align:center;
+  }
+button.get-photos {
+  padding: 10px 35px;
+  margin-top:25px;
+  margin-bottom:5px;
+  background-color:#999;
+  color:#fff;
+  border-radius:25px;
+  border: 0px solid #fff;
+}
+button.submit-btn {
+  padding: 10px 30px;
+  margin-top:5px;
+  margin-bottom:0px;
+  background-color:#999;
+  border-radius:25px;
+  color:yellow;
+  border: 0px solid #fff;
+}
+.icon {
+  padding:5px;
+}
+.icon img {
+  width:30px;
+  height:30px;
+  float:left;
+  padding:2px;
+}
+.images2 {
+  padding:12px;
+  overflow:auto;
+}
+.images2 img {
+  width:80px;
+  height:55px;
+  float:left;
+  padding:3px;
+}
+.delete {
+  background-color:red;
+  color:#fff;
+  border-radius:20px;
+  padding:8px 20px;
+}
+input {
+  width:92%;
+}
+textarea {
+  width:92%;
+}

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Your Local PostCard</title>
+
+  <!-- bootstrap -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <!-- css -->
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/4.0.0/pixi.min.js"></script>
+
+  <script src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script>
+
+</head>
+<body>
+
+  <header class="container-fluid text-center">
+    <h1>Local<span>PostCards</span></h1>
+  </header>
+
+  <div class="container-fluid sign-in-view">
+    <div class="row text-center">
+      <h3>Create Your Own Local Travel Postard</h3>
+     <!-- <button class="btn btn-default">-->
+        <a class="top" href="#" id="login">Login to 500px</a>
+      <!--</button>-->
+    </div>
+  </div>
+
+  <div class="container-fluid text-center canvas-view">
+    <h3>Use the tools on the left and create your own local postcard</h3>
+    <div class="tools">
+      <button type="" class="get-photos" style="display:none;">Get local photos</button>
+      <h4>Drag an image from near you</h4>
+      <div class="images"> </div>
+    <div class="images2">
+          <img src="img/ph1.jpg"><img src="img/ph7.jpg"><img src="img/ph2.jpg"><img src="img/ph3.jpg"><img src="img/ph4.jpg"><img src="img/ph5.jpg"><img src="img/ph8.jpg"><img src="img/ph9.jpeg">
+      </div>
+      <h4>Drag in an icon</h4>
+      <div class="icon"><img src="smile.png"><img src="kiss.png"><img src="cool.png"><img src="grinn.png"><img src="cry.png"><img src="anguish.png"><img src="sick.png"><img src="sleepy.png"><img src="dead.png"></div>
+      <div style="clear:both"></div>
+      <div class="tools-icons"></div>
+      <h4>Add a main title, click enter</h4>
+      <div class="tools-title">
+         <form id="input-title"> <input type="text" class="title"></form>
+      </div>
+      <h4>Add text:</h4>
+      <div class="tools-text">
+          <form id="input-text"><textarea type="text" class="text"></textarea><button type="submit"> &nbsp;Send &nbsp;</button></form>
+      </div>
+      <h4>Scale an item</h4>
+      <button class="plus">+</button> &nbsp; <button class="minus">-</button> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+      <button class="delete">Delete item</button> 
+      <h4 class="blue">To Save, right-click and send to your friends!</h4>
+    </div>
+
+
+
+    <div class="canvas"></div>
+    
+  </div>
+
+  <!-- js -->
+  <script src="500px.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
